@@ -1,0 +1,67 @@
+*{
+    box-sizing: border-box;
+    margin: 0px;
+    padding: 0px;
+    font-family: 'Courier New', Courier, monospace;
+}
+.container{
+    max-width: 1800px;
+    margin: 50px auto;
+}
+.queue_box{
+    width: 1700px;
+    height: 550px;
+    /* background-color: antiquewhite; */
+    margin: 0 auto;
+    display: flex;
+    flex-wrap: wrap;
+}
+.queueMember{
+    width: 150px;
+    height: 220px;
+    margin: 20px 10px;
+    padding: 15px;
+    background-color: lightskyblue;
+    border-radius: 10px;
+    overflow: hidden;
+}
+.queueMember p{
+    margin-bottom: 10px;
+}
+.editForm{
+    margin: 20px 50px;
+}
+.inputField{
+    width: 700px;
+    height: 50px;
+    border-radius: 5px;
+    border: none;
+    font-size: 17px;
+    padding: 0 15px;
+    background-color: #F6F6F6;
+}
+.button{
+    font-size: 17px;
+    width: 160px;
+    height: 50px;
+    background-color: #fa6400;
+    border-radius: 10px;
+    border: 1px solid transparent;
+    box-shadow: rgba(0, 0, 0, 0.02) 0 1px 3px 0;
+    color: #fff;
+    font-weight: 600;
+    text-decoration: none;
+    transition: all 250ms;
+}
+.button:hover{
+    cursor: pointer;
+    background-color: #fb8332;
+    box-shadow: rgba(0, 0, 0, 0.1) 0 4px 12px;
+    transform: translateY(-1px);
+}
+.shell{
+    width: 1700px;
+    height: 15px;
+    background-color: black;
+    margin: 0 auto;
+}

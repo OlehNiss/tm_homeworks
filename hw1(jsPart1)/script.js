@@ -28,7 +28,11 @@ function add(){
 }
 
 function remover(){
-    queue = JSON.parse(localStorage.getItem('queueData'));
+    if(localStorage.getItem('queueData')){
+        queue = JSON.parse(localStorage.getItem('queueData'));
+    }else{
+        alert('There is no elements in queque to delete!');
+    }
     if(queue.length > 0){
         queue.shift();
         console.log('queue after shift:',queue);

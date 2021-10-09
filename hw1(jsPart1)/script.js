@@ -1,29 +1,45 @@
 let getElem = x => document.querySelector(x);
 const myAge = 20;
+let queue;
+if(localStorage.getItem('queueData')){
+    queue = JSON.parse(localStorage.getItem('queueData'));
+}else{
+    queue = [];
+}
+
 function add(){
-    let innerFilling = getElem('.inputField').value;
-    let elemsLength = getElem('.queue_box').children.length;
-    if(innerFilling != ''){
-        if(elemsLength == myAge){
+    let inputText = getElem('.inputField').value;
+    if(inputText != ''){
+        if(queue.length == myAge){
             remover();
         }
-        getElem('.queue_box').innerHTML += `<div class="queueMember"><p>${elemsLength+1}</p><p>${innerFilling}</p></div>`;
+        queue.push(inputText);
+        console.log('queue after add:',queue);
+        let queueToJson = JSON.stringify(queue);
+        localStorage.setItem('queueData', queueToJson);
+
+        getElem('.queue_box').innerHTML += `<div class="queueMember"><p>${queue.length+1}</p><p>${inputText}</p></div>`;
         getElem('.inputField').value = '';
         reCount();
-        localStoragePush();
     }
-    else if(innerFilling == ''){
+    else if(inputText == ''){
         validateOn();
     }
 }
 
 function remover(){
-    let elem = getElem('.queue_box');
-    for(let i=0;i<elem.children.length;i++){
-        elem.removeChild(elem.children[i]);
+    queue = JSON.parse(localStorage.getItem('queueData'));
+    if(queue.length > 0){
+        queue.shift();
+        console.log('queue after shift:',queue);
+        let queueToJson = JSON.stringify(queue);
+        localStorage.setItem('queueData', queueToJson);
+
+        let elem = getElem('.queue_box');
+        elem.removeChild(elem.children[0]);
         reCount();
-        localStoragePush();
-        break;
+    }else{
+        alert('There is no elements in queque to delete!');
     }
 }
 function reCount(){
@@ -36,33 +52,35 @@ function validateOn(){
     getElem('.inputField').style.cssText = `
             border: 1px solid red;
         `;
-    //or make a class and add it instead of this style property;
-
-    let p = document.createElement("p");
-    p.setAttribute("id", "inputWarning");
-    p.setAttribute("style", "color:red;");
-    p.textContent = 'Input field must filled';
-    getElem('.editForm').append(p);
-
-    // getElem('.editForm').innerHTML += `<p style="color:red;" id="inputWarning">Input field must filled</p>`;
-
+    if(!getElem('#inputWarning')){
+        let p = document.createElement("p");
+        p.setAttribute("id", "inputWarning");
+        p.setAttribute("style", "color:red;");
+        p.textContent = 'Input field must filled';
+        getElem('.editForm').append(p);
+    }
 }
-
 function validateOff(){
     getElem('.inputField').style.cssText = `
             border: none;
         `;
-    // getElem('#inputWarning').style.display = 'none';
-    getElem('#inputWarning').remove();
+    if(getElem('#inputWarning')){
+        getElem('#inputWarning').remove();
+    }
 }
 
-function localStoragePush (){
-    localStorage.setItem('myQueue',getElem('.queue_box').innerHTML);
+function queueVisualizationFromStorage(){
+    if(localStorage.getItem('queueData')){
+        let queueData = JSON.parse(localStorage.getItem('queueData'));
+        let divVisualize = '';
+        for(let i=0;i<queueData.length;i++){
+            divVisualize = `<div class="queueMember"><p>${i+1}</p><p>${queueData[i]}</p></div>`;
+            getElem('.queue_box').innerHTML += divVisualize;
+        }
+    }
 }
 
-if(localStorage.getItem('myQueue')){
-    getElem('.queue_box').innerHTML = localStorage.getItem('myQueue');
-}
+queueVisualizationFromStorage();
 getElem('.addElement').addEventListener('click', add);
 getElem('.removeElement').addEventListener('click', remover);
 getElem('.inputField').addEventListener('change', validateOff);

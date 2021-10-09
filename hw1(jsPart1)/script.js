@@ -1,9 +1,10 @@
+'use strict';
 let getElem = x => document.querySelector(x);
 const myAge = 20;
 let queue;
 if(localStorage.getItem('queueData')){
     queue = JSON.parse(localStorage.getItem('queueData'));
-}else{
+}else if(!localStorage.getItem('queueData')){
     queue = [];
 }
 
@@ -28,11 +29,9 @@ function add(){
 }
 
 function remover(){
-    if(localStorage.getItem('queueData')){
-        queue = JSON.parse(localStorage.getItem('queueData'));
-    }else{
-        alert('There is no elements in queque to delete!');
-    }
+    // if(localStorage.getItem('queueData')){
+    //     queue = JSON.parse(localStorage.getItem('queueData'));
+    // }
     if(queue.length > 0){
         queue.shift();
         console.log('queue after shift:',queue);

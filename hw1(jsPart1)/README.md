@@ -1,4 +1,4 @@
-To start a project open index.html file
+To start a project open index.html file(better way)
 or enter site link:
 https://olehniss.github.io/tm_homeworks/hw1(jsPart1)/
 

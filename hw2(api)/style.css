@@ -62,7 +62,7 @@
 }
 .card{
     width: 300px;
-    height: 600px;
+    max-height: 600px;
     margin: 20px;
     background-color: bisque;
     display: flex;
@@ -77,7 +77,7 @@
 }
 .card > p{
     padding: 0 15px;
-    margin: 5px 0;
+    margin-top: 5px;
 }
 .img{
     width: 160px;

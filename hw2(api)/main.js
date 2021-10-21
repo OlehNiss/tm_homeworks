@@ -4,7 +4,8 @@ import { DatabaseError } from '/errors.js'
 
 import {url, inp} from '/variables.js'
 import {Creature} from '/variables.js'
-import {addMember, removeMember} from '/variables.js'
+import {addMember} from '/variables.js'
+import {removeMember} from '/variables.js'
 
 window.addMember = addMember;
 window.removeMember = removeMember;
@@ -21,12 +22,11 @@ class SuperHero extends Creature {
         super(url)
     }
 
-    async fetchToDo() {
+    fetchToDo() {
         this.searchCleaner();
         this.inputval = this.inputToUpper(inp);
-
         /* Using .then */
-        fetch(url)
+        fetch(url)  
             .then(response => response.json())
             .then(data => {
                 if (this.inputval != '') {
@@ -63,38 +63,9 @@ class SuperHero extends Creature {
             .catch(new DatabaseError('A database error'))
             .catch(error => console.log(error));
 
-        /* Using async/await */
-        // const response = await fetch(url);
-        // const data = await response.json();
-        // if (this.inputval != '') {
-        //     try {
-        //         for (let i = 0; i < data.length; i++) {
-        //             if (data[i].name.includes(this.inputval)) {
-        //                 this.img_url = data[i].images.sm;
-        //                 this.nick = data[i].name;
-        //                 this.fullName = data[i].biography.fullName;
-        //                 this.race = data[i].appearance.race;
-        //                 if (this.race == null) {
-        //                     this.race = 'Unknown';
-        //                 }
-        //                 if (this.fullName == '') {
-        //                     this.fullName = '-';
-        //                 }
-        //                 this.gender = data[i].appearance.gender;
-        //                 this.placeOfBirth = data[i].biography.placeOfBirth.slice(0, 43);
-        //                 this.work = data[i].work.occupation.slice(0, 78);
-        //                 this.searchCards(this.img_url, this.nick, this.fullName, this.race, this.gender, this.placeOfBirth, this.work, i);
-        //             }
-        //         }
-        //     } catch (error) {
-        //         console.error(error);
-        //     }
-        // }else if (this.inputval == '') {
-        //     if(document.querySelector('.searchResult').innerHTML == ''){
-        //         document.querySelector('.searchResult').innerHTML += `<h2 class="noResults">No results found</h2>`
-        //     } 
-        //     alert('You didn\'t input anything, so there is nothing to show!!');
-        // }
+        //inner Lexical Environment {}
+        // outer Lexical Environment { img_url, nick, fullName, placeOfBirth, work, inputVal: undefined, constructor: fn, searchCards: fn, inputToUpper: fn, searchCleaner:fn, ... }
+        // global Lexical Environment { hero: Object, SuperHero: Object, addMember: fn, removeMember: fn, url: string, inp: Node, Creature: Object, ...  }
     }
 
     searchCards(img_url, nick, fullName, race, gender, placeOfBirth, work, id) {
@@ -128,3 +99,38 @@ const hero = new SuperHero(url);
 document.querySelector('.btn').addEventListener('click', () => {
     hero.fetchToDo();
 })
+
+
+
+/* Using async/await */
+        // const response = await fetch(url);
+        // const data = await response.json();
+        // if (this.inputval != '') {
+        //     try {
+        //         for (let i = 0; i < data.length; i++) {
+        //             if (data[i].name.includes(this.inputval)) {
+        //                 this.img_url = data[i].images.sm;
+        //                 this.nick = data[i].name;
+        //                 this.fullName = data[i].biography.fullName;
+        //                 this.race = data[i].appearance.race;
+        //                 if (this.race == null) {
+        //                     this.race = 'Unknown';
+        //                 }
+        //                 if (this.fullName == '') {
+        //                     this.fullName = '-';
+        //                 }
+        //                 this.gender = data[i].appearance.gender;
+        //                 this.placeOfBirth = data[i].biography.placeOfBirth.slice(0, 43);
+        //                 this.work = data[i].work.occupation.slice(0, 78);
+        //                 this.searchCards(this.img_url, this.nick, this.fullName, this.race, this.gender, this.placeOfBirth, this.work, i);
+        //             }
+        //         }
+        //     } catch (error) {
+        //         console.error(error);
+        //     }
+        // }else if (this.inputval == '') {
+        //     if(document.querySelector('.searchResult').innerHTML == ''){
+        //         document.querySelector('.searchResult').innerHTML += `<h2 class="noResults">No results found</h2>`
+        //     } 
+        //     alert('You didn\'t input anything, so there is nothing to show!!');
+        // }

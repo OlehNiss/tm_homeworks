@@ -54,7 +54,7 @@
 .searchResult{
     margin: 0 auto;
     max-width: 1400px;
-    min-height: 800px;
+    min-height: 640px;
     border: 1px solid #000;
     display: flex;
     flex-direction: row;
@@ -82,4 +82,20 @@
 .img{
     width: 160px;
     height: 240px;
+}
+.teamHeading{
+    margin: 15px 0;
+    text-align: center;
+    font-size: 30px;
+    font-family: Montserrat, sans-serif;
+}
+.tip{
+    color: gray;
+    margin: 2px;
+}
+.noResults{
+    margin: 20px;
+    font-weight: 700;
+    font-size: 30px;
+    font-family: Montserrat, sans-serif;
 }

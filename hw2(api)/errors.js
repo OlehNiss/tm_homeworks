@@ -1,4 +1,4 @@
-export   class ValidationError extends Error {
+export class ValidationError extends Error {
     constructor(message) {
       super(message)
       this.name = 'ValidationError'
@@ -12,7 +12,7 @@ export class PermissionError extends Error {
       this.message = message
     }
   }
-export   class DatabaseError extends Error {
+export class DatabaseError extends Error {
     constructor(message) {
       super(message)
       this.name = 'DatabaseError'

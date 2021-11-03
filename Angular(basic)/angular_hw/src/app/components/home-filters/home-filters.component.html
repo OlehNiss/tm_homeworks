@@ -3,13 +3,13 @@
         <h2>Filters</h2>
         <div class="filter_div">
             <label for="genres">Genre</label>
-            <select name="genres" formControlName="genre">
+            <select name="genres" formControlName="genre" class="selectBox">
                 <option *ngFor="let genre of genres">{{genre}}</option>
             </select>
         </div>
         <div class="filter_div">
             <label for="years">Year</label>
-            <select name="years" formControlName="year">
+            <select name="years" formControlName="year" class="selectBox">
                 <option *ngFor="let year of years">{{year}}</option>
             </select>
         </div>

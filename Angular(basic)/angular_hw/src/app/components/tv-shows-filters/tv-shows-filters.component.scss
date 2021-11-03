@@ -8,6 +8,11 @@
     display: flex;
     flex-direction: column;
     align-items: center;
+    font-family: "Graphik Kinopoisk LC Web",Arial,Tahoma,Verdana,sans-serif;
+}
+.filtersForm h2{
+    font-size: 30px;
+    font-weight: bold;
 }
 .filter_div{
     margin: 20px 0;
@@ -15,7 +20,7 @@
     flex-direction: column;
 }
 .filter_div label{
-    font-size: 26px;
+    font-size: 22px;
     font-weight: bold;
 }
 .filter_div select{
@@ -38,4 +43,21 @@ button:hover{
     background-color: #fb8332;
     box-shadow: rgba(0, 0, 0, 0.1) 0 4px 12px;
     transform: translateY(-1px);
+}
+.selectBox{
+    border: 1px solid rgba(0,0,0,.1);
+    border-radius: 4px;
+    padding: 10px 12px;
+    padding-right: 10px;
+    color: #333;
+    font-size: 18px;
+    font-weight: 400;
+    font-family: "Graphik Kinopoisk LC Web",Arial,Tahoma,Verdana,sans-serif;
+    width: 220px;
+    height: 50px;
+    margin-top: 10px;
+}
+.selectBox:focus{
+    border: 1px solid rgba(0,0,0,.1);
+    outline: none;
 }

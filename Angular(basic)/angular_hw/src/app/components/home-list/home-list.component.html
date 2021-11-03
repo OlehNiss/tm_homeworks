@@ -2,7 +2,7 @@
     <!-- <button (click)="changeMessage()">TYCK</button> -->
     <div class="home_title_contant">
         <div class="home_title_elem">
-            <h2>Popular</h2>
+            <h2>Popular movies</h2>
         </div>
         <div class="pages">    
             <ng-container *ngIf="!filteredPages">
@@ -21,7 +21,13 @@
         <div *ngFor="let movie of moviesList">
             <div class="popular_item">
                 <div class="image_div">
-                    <img src="https://www.themoviedb.org/t/p/w600_and_h900_bestv2{{movie.poster_path}}" alt="" class="poster">
+                    <ng-container *ngIf="movie.poster_path !== null">
+                        <img src="https://www.themoviedb.org/t/p/w600_and_h900_bestv2{{movie.poster_path}}" alt=""
+                            class="poster">
+                    </ng-container>
+                    <ng-container *ngIf="movie.poster_path === null">
+                        <div class="emptyImg">{{movie.title}} haven't img</div>
+                    </ng-container>
                     <i class="fa fa-star fa-2x" [ngClass]="{'favouriteFilmStarYellow': movie.isFavourite}" (click)="addToFavourite(movie.id)"></i>
                 </div>
                 <div class="popular_movie_row popular_movie_title">

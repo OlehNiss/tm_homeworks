@@ -21,7 +21,6 @@ export class FavouriteComponent implements OnInit {
   ngOnInit(): void {
     if(localStorage.getItem('favouriteData')) {  
       this.favIds = JSON.parse(localStorage.getItem('favouriteData') || '{}');
-      console.log(this.favIds);
 
       this.favIds.forEach(elemId => {
         this.favouriteService.getFavouriteMovie(elemId)
@@ -48,16 +47,12 @@ export class FavouriteComponent implements OnInit {
       if(favMovie.id === idToDel){
         if(favMovie.isFavourite == true){
           favMovie.isFavourite = false;
-          console.log(this.favMovies);
-          
 
           this.favIds = JSON.parse(localStorage.getItem('favouriteData') || '{}');
           this.favIds.splice(this.favIds.indexOf(idToDel),1);
           localStorage.setItem('favouriteData', JSON.stringify(this.favIds));
-          console.log(this.favIds);
 
           this.favMovies.splice(this.favMovies.indexOf(favMovie), 1);
-          console.log(this.favMovies);
           }
         }
     })

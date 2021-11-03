@@ -37,7 +37,6 @@ export class TvShowsFiltersComponent implements OnInit {
     })
   }
   public createFilter():void{
-    console.log(this.newTVFilterForm.value);
     this.newTVFilterForm.value.genre = this.choosenGenre(this.newTVFilterForm.value.genre)
     this.tvShowFilterService.getTvShowFiltered(this.newTVFilterForm.value.genre,this.newTVFilterForm.value.year, 1)
       .pipe(

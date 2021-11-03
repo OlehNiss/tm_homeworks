@@ -74,7 +74,7 @@
     color: yellow;
 }
 .searchInputsWrapper{
-    width: 1000px;
+    width: 1200px;
     margin: 0 auto;
 }
 .btn{
@@ -85,11 +85,11 @@
     border-radius: 10px;
     border: 1px solid transparent;
     box-shadow: rgba(0, 0, 0, 0.02) 0 1px 3px 0;
+    font-family: "Graphik Kinopoisk LC Web",Arial,Tahoma,Verdana,sans-serif;
     color: #fff;
     font-weight: 600;
     text-decoration: none;
     transition: all 250ms;
-    margin: 20px 30px;
 }
 .btn:hover{
     cursor: pointer;
@@ -100,9 +100,61 @@
 .searchInput{
     width: 700px;
     height: 50px;
-    font-size: 17px;
+    font-size: 18px;
     border: 1px solid #fb8332;
+    font-family: "Graphik Kinopoisk LC Web",Arial,Tahoma,Verdana,sans-serif;
     border-radius: 15px;
     background-color: #F6F6F6;
     padding: 0 15px;
+    margin: 20px 40px;
+}
+.searchInput:focus{
+    border: 1px solid #fb8332;;
+    outline:none;
+}
+.selectBox{
+    border: 1px solid rgba(0,0,0,.1);
+    border-radius: 4px;
+    padding: 10px 12px;
+    padding-right: 10px;
+    color: #333;
+    font-size: 18px;
+    font-weight: 400;
+    font-family: "Graphik Kinopoisk LC Web",Arial,Tahoma,Verdana,sans-serif;
+    width: 150px;
+    height: 50px;
+}
+.selectBox:focus{
+    border: 1px solid rgba(0,0,0,.1);
+    outline: none;
+}
+
+
+
+
+
+
+.emptyImg{
+    margin-bottom: 280px;
+}
+
+.people_info_row{
+    margin: 5px 15px;
+}
+.people_name{
+    font-family: 'Source Sans Pro', Arial, sans-serif;
+    font-size: 16px;
+    font-weight: 700;
+}
+.people_title_contant{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.people_title_contant h2{
+    font-size: 30px;
+    font-weight: bold;
+}
+.people_title_elem{
+    margin-left: 40px;
 }

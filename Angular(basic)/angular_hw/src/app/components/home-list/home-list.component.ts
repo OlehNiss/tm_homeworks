@@ -52,9 +52,6 @@ export class HomeListComponent implements OnInit {
         this.moviesList = movies
     });
   }
-  ngOnDestroy(): void {
-    console.log('destroyed');
-  }
   public pageClick(page: number): void{
     this.movieService.getMovie(page)
       .pipe(
@@ -109,13 +106,11 @@ export class HomeListComponent implements OnInit {
           this.favouritesArr = JSON.parse(localStorage.getItem('favouriteData') || '{}');
           this.favouritesArr.splice(this.favouritesArr.indexOf(id),1);
           localStorage.setItem('favouriteData', JSON.stringify(this.favouritesArr));
-          console.log(this.favouritesArr);
         }else{
           movie.isFavourite = true;
 
           if(!localStorage.getItem('favouriteData')) {  
             this.favouritesArr.push(id);
-            console.log(this.favouritesArr);
             localStorage.setItem('favouriteData', JSON.stringify(this.favouritesArr));
          } else {
             this.favouritesArr = JSON.parse(localStorage.getItem('favouriteData') || '{}');
@@ -123,7 +118,6 @@ export class HomeListComponent implements OnInit {
               this.favouritesArr.push(id);
               localStorage.setItem('favouriteData', JSON.stringify(this.favouritesArr));
             }
-            console.log(this.favouritesArr);
          }
         }
       }

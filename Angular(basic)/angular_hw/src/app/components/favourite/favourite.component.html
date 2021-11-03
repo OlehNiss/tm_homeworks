@@ -5,8 +5,13 @@
       <div *ngFor="let favMovie of favMovies">
         <div class="favourite_item">
           <div class="image_div">
-            <img src="https://www.themoviedb.org/t/p/w600_and_h900_bestv2{{favMovie.poster_path}}" alt=""
+            <ng-container *ngIf="favMovie.poster_path !== null">
+              <img src="https://www.themoviedb.org/t/p/w600_and_h900_bestv2{{favMovie.poster_path}}" alt=""
               class="poster">
+            </ng-container>
+            <ng-container *ngIf="favMovie.poster_path === null">
+              <div class="emptyImg">{{favMovie.title}} haven't img</div>
+            </ng-container>
             <i class="fa fa-star fa-2x" [ngClass]="{'favouriteFilmStarYellow': favMovie.isFavourite}"
               (click)="deleteFavourite(favMovie.id)"></i>
           </div>

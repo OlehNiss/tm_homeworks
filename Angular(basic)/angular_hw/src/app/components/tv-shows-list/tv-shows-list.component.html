@@ -20,7 +20,14 @@
     <div *ngFor="let show of tvShowsList">
       <div class="popular_item">
         <div>
-          <img src="https://www.themoviedb.org/t/p/w600_and_h900_bestv2{{show.poster_path}}" alt="" class="poster">
+          <ng-container *ngIf="show.poster_path !== null">
+            <img src="https://www.themoviedb.org/t/p/w600_and_h900_bestv2{{show.poster_path}}" alt=""
+                class="poster">
+          </ng-container>
+          <ng-container *ngIf="show.poster_path === null">
+            <div class="emptyImg">{{show.name}} haven't img</div>
+          </ng-container>
+          <!-- <img src="https://www.themoviedb.org/t/p/w600_and_h900_bestv2{{show.poster_path}}" alt="" class="poster"> -->
         </div>
         <div class="popular_movie_row popular_movie_title">
           <span>{{ show.name }}</span>

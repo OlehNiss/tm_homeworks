@@ -38,7 +38,6 @@ export class HomeFiltersComponent implements OnInit {
     })
   }
   public createFilter(page: number = this.filteredPage):void{
-    console.log(this.newFilterForm.value.genre);
     this.newFilterForm.value.genre = this.choosenGenre(this.newFilterForm.value.genre)
     this.movieFilterService.getMovieFiltered(this.newFilterForm.value.genre,this.newFilterForm.value.year, page)
       .pipe(

@@ -1,3 +1,19 @@
 .about_container{
     margin-top: 120px;
 }
+.wrapper{
+    max-width: 1400px;
+    margin: 0 auto;
+    font-family: "Graphik Kinopoisk LC Web",Arial,Tahoma,Verdana,sans-serif;
+}
+.wrapper h1{
+    font-size: 40px;
+}.wrapper h3{
+    font-size: 30px;
+    margin-top: 15px;
+}
+.wrapper p{
+    font-size: 22px;
+    margin: 15px 0;
+    line-height: 30px;
+}

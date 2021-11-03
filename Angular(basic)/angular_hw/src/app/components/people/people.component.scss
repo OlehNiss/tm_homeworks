@@ -1,0 +1,64 @@
+.people_container{
+    margin-top: 120px;
+}
+.wrapper{
+    max-width: 1650px;
+    margin: 0 auto;
+}
+.poster{
+    width: 200px;
+    height: 300px;
+    margin: 0;
+    border-top-left-radius: 5px;
+    border-top-right-radius: 5px;
+}
+.people_items{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+}
+.people_item{
+    width: 200px;
+    height: 410px;
+    background-color: #30365F;
+    margin: 10px 15px;
+    display: flex;
+    flex-direction: column;
+    color: white;
+    border-radius: 5px;
+}
+.people_info_row{
+    margin: 5px 15px;
+}
+.people_name{
+    font-family: 'Source Sans Pro', Arial, sans-serif;
+    font-size: 16px;
+    font-weight: 700;
+}
+
+
+.pages{
+    margin: 20px 60px 20px 0;
+    display: flex;
+}
+.page{
+    margin: 0 5px;  
+    background-color: lightgray;
+    border: 1px solid #000;
+    padding: 0.5em;
+}
+.page:hover{
+    cursor: pointer;
+}
+.people_title_contant{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.people_title_contant h2{
+    font-size: 30px;
+    font-weight: bold;
+}
+.people_title_elem{
+    margin-left: 40px;
+}

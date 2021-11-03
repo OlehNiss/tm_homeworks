@@ -1,0 +1,4 @@
+<div class="tv_shows_container">
+    <app-tv-shows-filters (tvShowFiltered)="childTVShowsFiltered($event)" (isFilteredPages)="pagesFiltered($event)" (filtersObj)="getFiltersObj($event)"></app-tv-shows-filters>
+    <app-tv-shows-list [tvShowsList]="tvShows" [filteredPages]="isPagesFiltered" [filters]="filtersObj"></app-tv-shows-list>
+</div>

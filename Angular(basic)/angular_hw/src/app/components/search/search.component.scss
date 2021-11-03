@@ -1,0 +1,108 @@
+.search_container{
+    margin-top: 120px;
+}
+.wrapper{
+    max-width: 1650px;
+    margin: 0 auto;
+}
+.poster{
+    width: 200px;
+    height: 300px;
+    margin: 0;
+    border-top-left-radius: 5px;
+    border-top-right-radius: 5px;
+}
+.search_items{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+}
+.search_item{
+    width: 200px;
+    height: 410px;
+    background-color: #30365F;
+    margin: 10px 15px;
+    display: flex;
+    flex-direction: column;
+    color: white;
+    border-radius: 5px;
+}
+.searchedMov_info_row{
+    margin: 5px 15px;
+}
+.searchedMov_name{
+    font-family: 'Source Sans Pro', Arial, sans-serif;
+    font-size: 16px;
+    font-weight: 700;
+}
+
+.date_and_rate{
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+}
+.rate_div{
+    background-color: #1D2547;
+    padding: 0.25rem 0.5rem;
+    font-family: 'Poppins', sans-serif;
+    margin-right: 28px;
+    left: 20px;;
+    font-size: 18px;
+    font-weight: bold;
+    align-items: center;
+    margin-top: -5px;
+}
+.rate_bad{
+    color: #FB0007;
+}
+.rate_normal{
+    color: #CC942F;
+}
+.rate_good{
+    color: #3BB33B;
+}
+.image_div{
+    position: relative;
+}
+.image_div i{
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    cursor: pointer;
+}
+.favouriteFilmStarYellow{
+    color: yellow;
+}
+.searchInputsWrapper{
+    width: 1000px;
+    margin: 0 auto;
+}
+.btn{
+    font-size: 17px;
+    width: 160px;
+    height: 50px;
+    background-color: #fa6400;
+    border-radius: 10px;
+    border: 1px solid transparent;
+    box-shadow: rgba(0, 0, 0, 0.02) 0 1px 3px 0;
+    color: #fff;
+    font-weight: 600;
+    text-decoration: none;
+    transition: all 250ms;
+    margin: 20px 30px;
+}
+.btn:hover{
+    cursor: pointer;
+    background-color: #fb8332;
+    box-shadow: rgba(0, 0, 0, 0.1) 0 4px 12px;
+    transform: translateY(-1px);
+}
+.searchInput{
+    width: 700px;
+    height: 50px;
+    font-size: 17px;
+    border: 1px solid #fb8332;
+    border-radius: 15px;
+    background-color: #F6F6F6;
+    padding: 0 15px;
+}

@@ -1,0 +1,31 @@
+.active{
+    background-color: #11B6DD;
+}
+a{
+    margin: 15px 20px;
+    font-size: 22px;
+    color: #fff;
+    text-decoration: none;
+    padding: 15px 30px;
+    display: inline-block;
+    border-radius: 40px;
+}
+.header_wrapper{
+    width: 1400px;
+    margin: 0 auto;
+    background-color: #032541;
+    border-bottom-left-radius: 15px;
+    border-bottom-right-radius: 15px;
+}
+.header{
+    width: 100%;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 100;
+    // background-color: #032541;
+}
+nav{
+    width: 75%;
+    margin: 0 auto;
+}

@@ -1,0 +1,34 @@
+<div class="favourite_container">
+  <div class="wrapper">
+    <div class="favourite_items">
+      <!-- <button (click)="logIt()">TYCK</button> -->
+      <div *ngFor="let favMovie of favMovies">
+        <div class="favourite_item">
+          <div class="image_div">
+            <img src="https://www.themoviedb.org/t/p/w600_and_h900_bestv2{{favMovie.poster_path}}" alt=""
+              class="poster">
+            <i class="fa fa-star fa-2x" [ngClass]="{'favouriteFilmStarYellow': favMovie.isFavourite}"
+              (click)="deleteFavourite(favMovie.id)"></i>
+          </div>
+          <div class="favourite_info_row favourite_name">
+            <span>{{ favMovie.title }}</span>
+          </div>
+          <div class="favourite_info_row date_and_rate">
+            <div>
+              <span>{{ favMovie.release_date | date}}</span>
+            </div>
+            <div class="rate_div" *ngIf="favMovie.vote_average > 7">
+              <span class="rate_good">{{ favMovie.vote_average }}</span>
+            </div>
+            <div class="rate_div" *ngIf="favMovie.vote_average <= 7 && favMovie.vote_average > 5">
+              <span class="rate_normal">{{ favMovie.vote_average }}</span>
+            </div>
+            <div class="rate_div" *ngIf="favMovie.vote_average <= 5 && favMovie.vote_average > 0">
+              <span class="rate_bad">{{ favMovie.vote_average }}</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

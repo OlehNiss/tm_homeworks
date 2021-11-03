@@ -1,0 +1,20 @@
+<div class="filter_wrapper">
+    <form [formGroup]="newTVFilterForm" class="filtersForm">
+        <h2>Filters</h2>
+        <div class="filter_div">
+            <label for="genres">Genre</label>
+            <select name="genres" formControlName="genre">
+                <option *ngFor="let genre of genres">{{genre}}</option>
+            </select>
+        </div>
+        <div class="filter_div">
+            <label for="years">Year</label>
+            <select name="years" formControlName="year">
+                <option *ngFor="let year of years">{{year}}</option>
+            </select>
+        </div>
+
+        <button class="filter_div" type="submit"
+            (click)="createFilter()">Submit</button>
+    </form>
+</div>

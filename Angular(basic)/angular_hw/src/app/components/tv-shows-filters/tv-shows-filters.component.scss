@@ -1,0 +1,41 @@
+.filter_wrapper{
+    margin-top: 100px;
+    min-width: 650px
+}
+.filtersForm{
+    width: 60%;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.filter_div{
+    margin: 20px 0;
+    display: flex;
+    flex-direction: column;
+}
+.filter_div label{
+    font-size: 26px;
+    font-weight: bold;
+}
+.filter_div select{
+    font-size: 20px;
+}
+button{
+    font-size: 20px;
+    padding: 20px 30px;
+    background-color: #fa6400;
+    border-radius: 35px;
+    border: 1px solid transparent;
+    box-shadow: rgba(0, 0, 0, 0.02) 0 1px 3px 0;
+    color: #fff;
+    font-weight: 600;
+    text-decoration: none;
+    transition: all 250ms;
+}
+button:hover{
+    cursor: pointer;
+    background-color: #fb8332;
+    box-shadow: rgba(0, 0, 0, 0.1) 0 4px 12px;
+    transform: translateY(-1px);
+}

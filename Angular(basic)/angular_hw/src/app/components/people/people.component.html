@@ -1,0 +1,40 @@
+<div class="people_container">
+    <div class="wrapper">
+      <!-- <button (click)="showPeople()">Show people</button> -->
+      <div class="people_title_contant">
+        <div class="people_title_elem">
+          <h2>Popular people</h2>
+        </div>
+        <div class="pages people_title_elem">
+          <div class="page" *ngFor="let page of pages" (click)="pageClick(page)">
+            <span>{{page}}</span>
+          </div>
+        </div>
+      </div>
+      <div class="people_items">
+        <div *ngFor="let person of people">
+          <div class="people_item">
+            <div>
+              <img src="https://www.themoviedb.org/t/p/w300_and_h450_bestv2{{person.profile_path}}" alt=""
+                class="poster">
+            </div>
+            <div class="people_info_row people_name">
+              <span>{{ person.name }}</span>
+            </div>
+            <div class="people_info_row">
+              <div *ngIf="person.gender == 1">
+                <span>Gender: </span><span>Female</span>
+              </div>
+              <div *ngIf="person.gender == 2">
+                <span>Gender: </span><span>Male</span>
+              </div>
+              <div class="popularity_div">
+                <span>Popularity: </span><span class="rate_good">{{ person.popularity }}</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+</div>
+

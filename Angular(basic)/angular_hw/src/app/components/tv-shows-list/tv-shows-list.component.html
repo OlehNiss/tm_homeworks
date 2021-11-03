@@ -1,0 +1,46 @@
+<div class="wrapper">
+  <div class="tvShows_title_contant">
+    <div class="tvShows_title_elem">
+      <h2>Popular</h2>
+    </div>
+    <div class="pages">
+      <ng-container *ngIf="!filteredPages">
+        <div class="page" *ngFor="let page of pages" (click)="pageClick(page)">
+          <span>{{page}}</span>
+        </div>
+      </ng-container>
+      <ng-container *ngIf="filteredPages">
+        <div class="page" *ngFor="let page of pages" (click)="pageFilteredClick(page)">
+          <span>{{page}}</span>
+        </div>
+      </ng-container>
+    </div>
+  </div>
+  <div class="popular_items">
+    <div *ngFor="let show of tvShowsList">
+      <div class="popular_item">
+        <div>
+          <img src="https://www.themoviedb.org/t/p/w600_and_h900_bestv2{{show.poster_path}}" alt="" class="poster">
+        </div>
+        <div class="popular_movie_row popular_movie_title">
+          <span>{{ show.name }}</span>
+        </div>
+        <div class="popular_movie_row date_and_rate">
+          <div>
+            <!-- pipe was used here... -->
+            <span>{{ show.first_air_date | date}}</span>
+          </div>
+          <div class="rate_div" *ngIf="show.vote_average > 7">
+            <span class="rate_good">{{ show.vote_average }}</span>
+          </div>
+          <div class="rate_div" *ngIf="show.vote_average <= 7 && show.vote_average > 5">
+            <span class="rate_normal">{{ show.vote_average }}</span>
+          </div>
+          <div class="rate_div" *ngIf="show.vote_average <= 5 && show.vote_average > 0">
+            <span class="rate_bad">{{ show.vote_average }}</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

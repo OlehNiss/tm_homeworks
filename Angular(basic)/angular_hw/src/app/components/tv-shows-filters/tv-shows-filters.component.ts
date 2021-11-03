@@ -31,7 +31,6 @@ export class TvShowsFiltersComponent implements OnInit {
   }
   ngOnInit(): void {
     this.newTVFilterForm = this.formBuilder.group({
-      // country: "",
       genre: "Action & Adventure",
       year: 2021
     })

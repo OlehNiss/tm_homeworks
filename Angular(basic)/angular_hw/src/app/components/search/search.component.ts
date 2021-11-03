@@ -35,75 +35,79 @@ export class SearchComponent implements OnInit {
     })
   }
   searchMovie() {
-    if(this.newFilterForm.value.type === 'movie'){
-      this.searchType = 'movie';
+    if (this.newFilterForm.value.input !== '') {
+      if (this.newFilterForm.value.type === 'movie') {
+        this.searchType = 'movie';
 
-      this.searchServise.searchMovie(this.newFilterForm.value.input)
-      .pipe(
-        map((movie: any) => movie.results),
-        map((movies: any) => {
-          if (localStorage.getItem('favouriteData')) {
-            movies.forEach((movie: any) => {
-              this.favouritesArr = JSON.parse(localStorage.getItem('favouriteData') || '{}');
-              if (this.favouritesArr.includes(movie.id)) {
-                movie.isFavourite = true
-              } else {
-                movie.isFavourite = false
+        this.searchServise.searchMovie(this.newFilterForm.value.input)
+          .pipe(
+            map((movie: any) => movie.results),
+            map((movies: any) => {
+              if (localStorage.getItem('favouriteData')) {
+                movies.forEach((movie: any) => {
+                  this.favouritesArr = JSON.parse(localStorage.getItem('favouriteData') || '{}');
+                  if (this.favouritesArr.includes(movie.id)) {
+                    movie.isFavourite = true
+                  } else {
+                    movie.isFavourite = false
+                  }
+                })
               }
+              return movies
             })
-          }
-          return movies
-        })
-      )
-      .subscribe((movies: IMovie[]) => {
-        this.searchedMovies = movies
-      });
-    }else if(this.newFilterForm.value.type === 'tv'){
-      this.searchType = 'tv'
+          )
+          .subscribe((movies: IMovie[]) => {
+            this.searchedMovies = movies
+          });
+      } else if (this.newFilterForm.value.type === 'tv') {
+        this.searchType = 'tv'
 
-      this.searchServise.searchTvShow(this.newFilterForm.value.input)
-      .pipe(
-        map((show: any) => show.results),
-        // map((shows: any) => {
-        //   if (localStorage.getItem('favouriteData')) {
-        //     shows.forEach((show: any) => {
-        //       this.favouritesArr = JSON.parse(localStorage.getItem('favouriteData') || '{}');
-        //       if (this.favouritesArr.includes(show.id)) {
-        //         show.isFavourite = true
-        //       } else {
-        //         show.isFavourite = false
-        //       }
-        //     })
-        //   }
-        //   return shows
-        // })
-      )
-      .subscribe((shows: ITvShow[]) => {
-        this.searchedTVShows = shows
-      });
-    }else if(this.newFilterForm.value.type === 'people'){
-      this.searchType = 'people';
+        this.searchServise.searchTvShow(this.newFilterForm.value.input)
+          .pipe(
+            map((show: any) => show.results),
+            // map((shows: any) => {
+            //   if (localStorage.getItem('favouriteData')) {
+            //     shows.forEach((show: any) => {
+            //       this.favouritesArr = JSON.parse(localStorage.getItem('favouriteData') || '{}');
+            //       if (this.favouritesArr.includes(show.id)) {
+            //         show.isFavourite = true
+            //       } else {
+            //         show.isFavourite = false
+            //       }
+            //     })
+            //   }
+            //   return shows
+            // })
+          )
+          .subscribe((shows: ITvShow[]) => {
+            this.searchedTVShows = shows
+          });
+      } else if (this.newFilterForm.value.type === 'people') {
+        this.searchType = 'people';
 
-      this.searchServise.searchPeople(this.newFilterForm.value.input)
-      .pipe(
-        map((people: any) => people.results),
-        // map((shows: any) => {
-        //   if (localStorage.getItem('favouriteData')) {
-        //     shows.forEach((show: any) => {
-        //       this.favouritesArr = JSON.parse(localStorage.getItem('favouriteData') || '{}');
-        //       if (this.favouritesArr.includes(show.id)) {
-        //         show.isFavourite = true
-        //       } else {
-        //         show.isFavourite = false
-        //       }
-        //     })
-        //   }
-        //   return shows
-        // })
-      )
-      .subscribe((people: IPeople[]) => {
-        this.searchedPeople = people
-      });
+        this.searchServise.searchPeople(this.newFilterForm.value.input)
+          .pipe(
+            map((people: any) => people.results),
+            // map((shows: any) => {
+            //   if (localStorage.getItem('favouriteData')) {
+            //     shows.forEach((show: any) => {
+            //       this.favouritesArr = JSON.parse(localStorage.getItem('favouriteData') || '{}');
+            //       if (this.favouritesArr.includes(show.id)) {
+            //         show.isFavourite = true
+            //       } else {
+            //         show.isFavourite = false
+            //       }
+            //     })
+            //   }
+            //   return shows
+            // })
+          )
+          .subscribe((people: IPeople[]) => {
+            this.searchedPeople = people
+          });
+      }
+    }else{
+      alert('Input something into input field!!')
     }
   }
   addToFavourite(id: number){

@@ -28,11 +28,11 @@ export class TvShowsComponent implements OnInit {
   childTVShowsFiltered(filteredTVShows: ITvShow[]){
     this.tvShows = filteredTVShows;
   }
-  //get boolean value to pages so pages will work for filtered movie
+  //get boolean value to pages so pages will work for filtered tv shows
   public pagesFiltered(isFiltered: boolean): void{
     this.isPagesFiltered = isFiltered;
   }
-  //get object of filters to call new http request with filtered movies of some page
+  //get object of filters to call new http request with filtered tv shows of some page
   public getFiltersObj(filtersObject: ITvShowFilter): void{
     this.filtersObj = filtersObject;
   }

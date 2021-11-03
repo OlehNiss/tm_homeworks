@@ -2,6 +2,4 @@
     <app-home-filters (movieFiltered)="filtersChosen($event)" (isFilteredPages)="pagesFiltered($event)" (filtersObj)="getFiltersObj($event)"></app-home-filters>
     <app-home-list [moviesList]="movies" [filteredPages]="isPagesFiltered" [filters]="filtersObj"></app-home-list>
 </div>
-<!-- <app-home-list [moviesList]="movies" (pageChanged)="childItemClicked($event)"></app-home-list> -->
-<!-- <input [(ngModel)]="query"> -->
-<!-- <button (click)="showAllMovie()">Click</button> -->
+

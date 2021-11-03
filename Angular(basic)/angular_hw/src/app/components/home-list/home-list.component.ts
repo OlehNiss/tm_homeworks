@@ -75,7 +75,6 @@ export class HomeListComponent implements OnInit {
     });
   }
   public pageFilteredClick(page: number): void{
-    console.log(this.filters);
     this.movieFilterService.getMovieFiltered(this.filters.genre, this.filters.year, page)
       .pipe(
         map((movie:any) => movie.results),

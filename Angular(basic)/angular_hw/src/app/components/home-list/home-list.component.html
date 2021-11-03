@@ -1,5 +1,4 @@
 <div class="wrapper">
-    <!-- <button (click)="changeMessage()">TYCK</button> -->
     <div class="home_title_contant">
         <div class="home_title_elem">
             <h2>Popular movies</h2>
@@ -46,9 +45,6 @@
                     <div class="rate_div" *ngIf="movie.vote_average <= 5 && movie.vote_average > 0">
                         <span class="rate_bad">{{ movie.vote_average }}</span>
                     </div>
-                    <!-- <div class="rate_div" [ngClass]="{'rate_': true}" [(ngModel)]="rateStr" *ngIf="movie.vote_average > 7 : ">
-                        <span>{{ movie.vote_average }}</span>
-                    </div> -->
                 </div>
             </div>
         </div>

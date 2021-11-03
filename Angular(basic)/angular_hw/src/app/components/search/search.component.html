@@ -11,8 +11,8 @@
     </form>
 
 
-    <!-- form for movis was found -->
-    <div class="search_items" *ngIf="searchType == 'movie'">
+    <!-- !!!!!!!!!!!!! form for movis was found -->
+    <div class="search_items" *ngIf="searchType == 'movie' && searchedMovies.length > 0">
       <div *ngFor="let searchedMovie of searchedMovies">
         <div class="search_item">
           <div class="image_div">
@@ -46,10 +46,13 @@
         </div>
       </div>
     </div>
+    <div class="search_items" *ngIf="searchType == 'movie' && searchedMovies.length == 0">
+      <h2>Nothing found...</h2>
+    </div>
 
 
 
-    <!-- form for tvshows was found -->
+    <!--!!!!!!!!!!!! form for tvshows was found -->
     <div class="search_items" *ngIf="searchType == 'tv'">
       <div *ngFor="let searchedTVShow of searchedTVShows">
         <div class="search_item">
@@ -84,9 +87,12 @@
         </div>
       </div>
     </div>
+    <div class="search_items" *ngIf="searchType == 'tv' && searchedTVShows.length == 0">
+      <h2>Nothing found...</h2>
+    </div>
 
 
-    <!-- form for people was found -->
+    <!--!!!!!!!!!!!!!! form for people was found -->
     <div class="search_items" *ngIf="searchType == 'people'">
       <div *ngFor="let searchedPerson of searchedPeople">
         <div class="search_item">
@@ -117,6 +123,9 @@
           </div>
         </div>
       </div>
+    </div>
+    <div class="search_items" *ngIf="searchType == 'people' && searchedPeople.length == 0">
+      <h2>Nothing found...</h2>
     </div>
 
 
